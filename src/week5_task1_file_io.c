@@ -1,5 +1,5 @@
 // week5_task1_file_io.c
-// Name: ________  Surname: ________  Student ID: ________
+// Name: Fabian Malte  Surname: Dehnbostel  Student ID: 260AIM015
 //
 // Task 1: Read and write data from text files
 // Week 5 – Files & Modular Programming
@@ -19,22 +19,38 @@ int main(int argc, char *argv[]) {
     char line[LINE_LEN];
     int line_count = 0;
 
-    // BONUS: if a file name was given on the command line (argc > 1), use argv[1] instead.
+    if(argc > 1){
+        filename =argv[1];
+    }
+    printf("Writing lines to %s...\n",filename);
+    fp = fopen(filename, "w");
+    if(fp == NULL){
+        perror(filename);
+        return EXIT_FAILURE;
+    }
+    fprintf(fp,"Hello World");
+    fprintf(fp, "I Love the RTU!");
+    fprintf(fp,"have a nice Day ");
+    fclose(fp);
 
-    // TODO: 1. Print "Writing lines to <filename>..." and open the file for writing (mode "w")
-    // TODO: 2. Check that fp is not NULL. If it is: perror(filename); return EXIT_FAILURE;
-    // TODO: 3. Write 2–3 lines of text to the file using fprintf()
-    // TODO: 4. Close the file with fclose()
+    fp = fopen(filename,"r");
+    if (fp == NULL)
+    {
+        perror(filename);
+        return EXIT_FAILURE;
+    }
+    
+    printf("Reading contents:\n");
+    while (fgets(line,LINE_LEN,fp)!= NULL)
+    {
+        printf("%s\n",line);
+        line_count = line_count++;
+    }
+    
+    fclose(fp);
 
-    // TODO: 5. Open the file again for reading (mode "r") and check for NULL again
-    // TODO: 6. Print "Reading contents:" and use fgets() in a loop to print each line
-    //          (BONUS: count the lines in line_count)
-    // TODO: 7. Close the file
+    printf("Lines read: %d\n", line_count);
 
-    // BONUS: printf("Lines read: %d\n", line_count);
-
-    // Remove this line once you use these variables:
-    (void)argc; (void)argv; (void)fp; (void)filename; (void)line; (void)line_count;
 
     return EXIT_SUCCESS;
 }

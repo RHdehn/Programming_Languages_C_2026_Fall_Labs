@@ -1,7 +1,7 @@
 /*
  * week4_2_struct_student.c
- * Author: [Your Name]
- * Student ID: [Your ID]
+ * Author: Fabian Dehnbostel
+ * Student ID: 260AIM015
  * Description:
  *   Demonstrates defining and using a struct in C.
  *   Define a 'Student' struct with name, id and grade, create two
@@ -13,6 +13,7 @@
 
 #include <stdio.h>
 #include <string.h>
+
 
 // TODO: Define struct Student with fields: name (char[50]), id (int), grade (float)
 // Example:
