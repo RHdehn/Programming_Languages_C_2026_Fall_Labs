@@ -28,9 +28,9 @@ int main(int argc, char *argv[]) {
         perror(filename);
         return EXIT_FAILURE;
     }
-    fprintf(fp,"Hello World");
-    fprintf(fp, "I Love the RTU!");
-    fprintf(fp,"have a nice Day ");
+    fprintf(fp,"Hello World\n");
+    fprintf(fp, "I Love the RTU!\n");
+    fprintf(fp,"have a nice Day \n");
     fclose(fp);
 
     fp = fopen(filename,"r");
@@ -43,8 +43,8 @@ int main(int argc, char *argv[]) {
     printf("Reading contents:\n");
     while (fgets(line,LINE_LEN,fp)!= NULL)
     {
-        printf("%s\n",line);
-        line_count = line_count++;
+        printf("%s",line);
+        line_count++;
     }
     
     fclose(fp);
